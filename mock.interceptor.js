@@ -8,16 +8,16 @@ define(["angular", "mock"], function(angular, Mock){
             }
         }
         function match(expected, actual) {
-            if (Util.type(expected) === "string") {
+            if (Mock.Util.type(expected) === "string") {
                 return expected === actual;
             }
-            if (Util.type(expected) === "regexp") {
+            if (Mock.Util.type(expected) === "regexp") {
                 return expected.test(actual);
             }
         }
     }
     function convert(item, options) {
-        return Util.isFunction(item.template) ? item.template(options) : Mock.mock(item.template);
+        return Mock.Util.isFunction(item.template) ? item.template(options) : Mock.mock(item.template);
     }
 
 	angular.module("mock.interceptor", [])
@@ -25,9 +25,9 @@ define(["angular", "mock"], function(angular, Mock){
 			$httpProvider.interceptors.push(function() {
 		    return {
 		     'request': function(config) {
-		           var item = find(options);
+		           var item = find(config);
 	                if (item) {
-	                	config.mockData = convert(item, options);
+	                	config.mockData = convert(item, config);
 	                	config.method = "GET";
                   		config.url = "?mockUrl=" + config.url;
 			      	}
