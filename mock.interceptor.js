@@ -45,4 +45,4 @@ define(["angular, mock"], function(angular, Mock){
 	});
 
 	return "mock.interceptor";
-}
+});
