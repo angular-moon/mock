@@ -21,7 +21,7 @@ define(["angular", "mock"], function(angular, Mock){
     }
 
 	angular.module("mock.interceptor", [])
-	.config(["$httpProvider"],function($httpProvider){
+	.config(["$httpProvider", function($httpProvider){
 			$httpProvider.interceptors.push(function() {
 		    return {
 		     'request': function(config) {
@@ -42,7 +42,7 @@ define(["angular", "mock"], function(angular, Mock){
 		      	}
 		    };
 		});
-	});
+	}]);
 
 	return "mock.interceptor";
 });
