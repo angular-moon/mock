@@ -1,4 +1,4 @@
-define(["angular, mock"], function(angular, Mock){
+define(["angular", "mock"], function(angular, Mock){
 
  	function find(options) {
         for (var sUrlType in Mock._mocked) {
