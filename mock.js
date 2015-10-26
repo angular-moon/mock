@@ -1063,9 +1063,6 @@
         define("mock", [], function() {
             return Mock;
         });
-        define("mockjs", [], function() {
-            return Mock;
-        });
     } else if (typeof define === "function" && define.cmd) {
         define(function() {
             return Mock;
